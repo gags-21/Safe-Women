@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'location.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -8,6 +9,13 @@ class MainScreen extends StatefulWidget {
 
 class _MainScreenState extends State<MainScreen> {
   @override
+  void initState() {
+    Location().getCurrentLocation();
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
@@ -15,9 +23,10 @@ class _MainScreenState extends State<MainScreen> {
         elevation: 0,
         backgroundColor: Colors.transparent,
       ),
-      body: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
+      body: Stack(
+        // mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
+          ///Main Button
           Align(
             alignment: Alignment.center,
             child: RawMaterialButton(
@@ -30,15 +39,52 @@ class _MainScreenState extends State<MainScreen> {
                 Icons.ring_volume,
                 size: 60.0,
               ),
-              onPressed: (){},
-              onLongPress: (){},
+              onPressed: () {
+                Location().getCurrentLocation();
+              },
+              onLongPress: () {},
             ),
           ),
-          Align(),
+
+          ///Contacts Preview
+          Align(
+            alignment: Alignment.bottomLeft,
+            child: Padding(
+              padding: const EdgeInsets.only(left: 10.0, bottom: 30),
+              child: Row(
+                children: <Widget>[
+                  FlatButton(
+                    padding: EdgeInsets.all(15.0),
+                    shape: CircleBorder(),
+                    color: Colors.white.withAlpha(50),
+                    splashColor: Colors.red.withAlpha(150),
+                    onPressed: () {},
+                    child: Text('A'),
+                  ),
+                  FlatButton(
+                    padding: EdgeInsets.all(15.0),
+                    shape: CircleBorder(),
+                    color: Colors.white.withAlpha(50),
+                    splashColor: Colors.orange.withAlpha(150),
+                    onPressed: () {},
+                    child: Text('B'),
+                  ),
+                  FlatButton(
+                    padding: EdgeInsets.all(15.0),
+                    shape: CircleBorder(),
+                    color: Colors.white.withAlpha(50),
+                    splashColor: Colors.green.withAlpha(150),
+                    onPressed: () {},
+                    child: Text('C'),
+                  ),
+                ],
+              ),
+            ),
+          ),
         ],
       ),
       floatingActionButton: Padding(
-        padding: const EdgeInsets.all(10.0),
+        padding: EdgeInsets.all(10.0),
         child: FloatingActionButton.extended(
           onPressed: () {},
           tooltip: 'Add Contact',
