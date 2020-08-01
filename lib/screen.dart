@@ -1,6 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'location.dart';
+import 'contact.dart';
+import 'call_sms.dart';
+import 'permissions.dart';
 
 class MainScreen extends StatefulWidget {
   @override
@@ -8,9 +11,12 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  String contact1 = '', contact2 = '', contact3 = '';
+
   @override
   void initState() {
-    Location().getCurrentLocation();
+    Per().getAllPer(context);
+    //   Location().getCurrentLocation();
     // TODO: implement initState
     super.initState();
   }
@@ -40,42 +46,93 @@ class _MainScreenState extends State<MainScreen> {
                 size: 60.0,
               ),
               onPressed: () {
+                //SmsIt().smsNow();
                 Location().getCurrentLocation();
+
               },
-              onLongPress: () {},
+              onLongPress: () {
+                CallIt().callNow('123456789');
+              },
             ),
+          ),
+
+          Column(
+            children: <Widget>[
+              Text(contact1 == '' ? 'Select Contact yaaar' : contact1),
+              Text(contact2 == '' ? 'Select Contact yaaar' : contact2),
+              Text(contact2 == '' ? 'Select Contact yaaar' : contact3),
+            ],
           ),
 
           ///Contacts Preview
           Align(
             alignment: Alignment.bottomLeft,
             child: Padding(
-              padding: const EdgeInsets.only(left: 10.0, bottom: 30),
+              padding: const EdgeInsets.only(left: 10.0, bottom: 25),
               child: Row(
                 children: <Widget>[
                   FlatButton(
                     padding: EdgeInsets.all(15.0),
                     shape: CircleBorder(),
-                    color: Colors.white.withAlpha(50),
+                    color: contact1 == ''
+                        ? Colors.white.withAlpha(50)
+                        : Colors.red.withAlpha(150),
                     splashColor: Colors.red.withAlpha(150),
-                    onPressed: () {},
-                    child: Text('A'),
+                    onPressed: () {
+                      setState(() {
+                        Contacts()
+                            .getContactName()
+                            .then((value) => contact1 = value);
+                      });
+                    },
+                    child: contact1 == ''
+                        ? Icon(
+                            Icons.add,
+                            size: 20,
+                          )
+                        : Text(contact1.substring(0, 1).toUpperCase()),
                   ),
                   FlatButton(
                     padding: EdgeInsets.all(15.0),
                     shape: CircleBorder(),
-                    color: Colors.white.withAlpha(50),
+                    color: contact2 == ''
+                        ? Colors.white.withAlpha(50)
+                        : Colors.orange.withAlpha(150),
                     splashColor: Colors.orange.withAlpha(150),
-                    onPressed: () {},
-                    child: Text('B'),
+                    onPressed: () {
+                      setState(() {
+                        Contacts()
+                            .getContactName()
+                            .then((value) => contact2 = value);
+                      });
+                    },
+                    child: contact2 == ''
+                        ? Icon(
+                            Icons.add,
+                            size: 20,
+                          )
+                        : Text(contact2.substring(0, 1).toUpperCase()),
                   ),
                   FlatButton(
                     padding: EdgeInsets.all(15.0),
                     shape: CircleBorder(),
-                    color: Colors.white.withAlpha(50),
+                    color: contact3 == ''
+                        ? Colors.white.withAlpha(50)
+                        : Colors.green.withAlpha(150),
                     splashColor: Colors.green.withAlpha(150),
-                    onPressed: () {},
-                    child: Text('C'),
+                    onPressed: () {
+                      setState(() {
+                        Contacts()
+                            .getContactName()
+                            .then((value) => contact3 = value);
+                      });
+                    },
+                    child: contact3 == ''
+                        ? Icon(
+                            Icons.add,
+                            size: 20,
+                          )
+                        : Text(contact3.substring(0, 1).toUpperCase()),
                   ),
                 ],
               ),
