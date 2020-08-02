@@ -17,6 +17,12 @@ getNumbers(String nom) {
   }
 }
 
+delNom(int i){
+  if(i==1) nom1 =null;
+  if(i==2) nom2 =null;
+  if(i==3) nom3 =null;
+}
+
 class CallIt {
   void callNow(String number) async {
     var status = await Permission.contacts.status;
@@ -39,7 +45,7 @@ class SmsIt {
   void getLocation(String locationValue) {
     location = locationValue;
     //smsNow();
-    if (nom1 != null) smsNom1(nom1);
+    if (nom1 != null || nom1 != '') smsNom1(nom1);
 
     if (nom2 != null) smsNom2(nom2);
 

@@ -6,15 +6,14 @@ final ContactPicker _contactPicker = ContactPicker();
 Contact _contact;
 
 class Contacts {
-  Future<String> getContactName() async {
+  Future<Contact> getContact() async {
 //    if(await Permission.contacts.status.isDenied)
 //      {
 //        print('access denied');
 //      }else {
       _contact = await _contactPicker.selectContact();
       print('${_contact.toString()}, Name Called !!');
-      getNumbers(_contact.phoneNumber.number);
-      return _contact.fullName.toString();
+      return _contact;
     //}
   }
 
