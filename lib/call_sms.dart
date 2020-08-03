@@ -5,15 +5,17 @@ import 'package:permission_handler/permission_handler.dart';
 String nom1, nom2, nom3;
 
 getNumbers(String nom) {
-  if (nom1 == null) {
+  if (nom1 == null || nom1 == 'null' && nom != 'null') {
     nom1 = nom;
-    print('Stored in nom1');
-  } else if (nom2 == null) {
+    print('Stored in nom1 is $nom1');
+  } else if (nom2 == null || nom2 == 'null' && nom != 'null') {
     nom2 = nom;
-    print('Stored in nom2');
-  } else if (nom3 == null) {
+    print('Stored in nom2 is $nom2');
+  } else if (nom3 == null || nom3 == 'null' && nom != 'null') {
     nom3 = nom;
-    print('Stored in nom3');
+    print('Stored in nom3 is $nom3');
+  }else{
+    print(' FULL-----------------------------');
   }
 }
 
@@ -25,11 +27,8 @@ delNom(int i){
 
 class CallIt {
   void callNow(String number) async {
-    var status = await Permission.contacts.status;
-    if (status.isDenied) {
-      print('plzzz Giveeeeee');
-    }else{
-      //const number = '1478523691';
+ //   var status = await Permission.contacts.status;
+    if (number != null && number != 'null') {
       await FlutterPhoneDirectCaller.directCall(number);
     }
   }
@@ -45,11 +44,11 @@ class SmsIt {
   void getLocation(String locationValue) {
     location = locationValue;
     //smsNow();
-    if (nom1 != null || nom1 != '') smsNom1(nom1);
+    if (nom1 != null ) smsNom1(nom1);
 
-    if (nom2 != null) smsNom2(nom2);
+    if (nom2 != null ) smsNom2(nom2);
 
-    if (nom3 != null) smsNom3(nom3);
+    if (nom3 != null ) smsNom3(nom3);
   }
 
   void smsNow() async {

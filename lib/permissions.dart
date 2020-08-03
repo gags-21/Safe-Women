@@ -12,13 +12,13 @@ class Per {
     ].request();
 
     if (await Permission.contacts.isPermanentlyDenied  || await Permission.contacts.isDenied) {
-      showDialog(context: context, builder: (context) => AlertBox('Contacts'));
+      showDialog(context: context, builder: (context) => AlertBox('Contacts'),barrierDismissible: false);
     }else if(await Permission.phone.isPermanentlyDenied || await Permission.phone.isDenied){
-      showDialog(context: context, builder: (context) => AlertBox('Calls'));
+      showDialog(context: context, builder: (context) => AlertBox('Calls'),barrierDismissible: false);
     }else if(await Permission.sms.isPermanentlyDenied || await Permission.sms.isDenied){
-      showDialog(context: context, builder: (context) => AlertBox('Sms'));
+      showDialog(context: context, builder: (context) => AlertBox('Sms'),barrierDismissible: false);
     }else if(await Permission.locationWhenInUse.isPermanentlyDenied || await Permission.locationWhenInUse.isDenied){
-      showDialog(context: context, builder: (context) => AlertBox('Location'));
+      showDialog(context: context, builder: (context) => AlertBox('Location'),barrierDismissible: false);
     }
 
 

@@ -71,6 +71,7 @@ class AlertBox extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 FlatButton(
+                  splashColor: Colors.black26,
                     onPressed: () {
                       Navigator.of(context).pop();
                       exit(0);
@@ -85,8 +86,8 @@ class AlertBox extends StatelessWidget {
                 ),
                 RaisedButton(
                   onPressed: () {
+                    Navigator.of(context).pop(true);
                     Per().getAllPer(context);
-                    Navigator.of(context).pop();
                   },
                   child: Text('Allow'),
                   color: Colors.redAccent,
