@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 class Per {
   void getAllPer(context) async {
     Map<Permission, PermissionStatus> statuses = await [
-      Permission.locationWhenInUse,
+      Permission.locationAlways,
       Permission.contacts,
       Permission.sms,
       Permission.phone,

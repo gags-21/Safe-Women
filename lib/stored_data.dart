@@ -1,5 +1,5 @@
 //import 'dart:async';
-import 'package:safe_women/call_sms.dart';
+//import 'package:safe_women/call_sms.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Stored {
