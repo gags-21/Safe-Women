@@ -84,24 +84,24 @@ class _MainScreenState extends State<MainScreen> {
                 Location().getCurrentLocation();
               },
               onLongPress: () {
-                CallIt().callNow('123456789');
+                CallIt().callNow('1091');
               },
             ),
           ),
 
-          Column(
-            children: <Widget>[
-              Text(contact1 == null
-                  ? name1 == null ? 'Select Contact yaaar' : name1
-                  : contact1.fullName.toString()),
-              Text(contact2 == null
-                  ? name2 == null ? 'Select Contact yaaar' : name2
-                  : contact2.fullName.toString()),
-              Text(contact3 == null
-                  ? name3 == null ? 'Select Contact yaaar' : name3
-                  : contact3.fullName.toString()),
-            ],
-          ),
+//          Column(
+//            children: <Widget>[
+//              Text(contact1 == null
+//                  ? name1 == null ? 'Select Contact yaaar' : name1
+//                  : contact1.fullName.toString()),
+//              Text(contact2 == null
+//                  ? name2 == null ? 'Select Contact yaaar' : name2
+//                  : contact2.fullName.toString()),
+//              Text(contact3 == null
+//                  ? name3 == null ? 'Select Contact yaaar' : name3
+//                  : contact3.fullName.toString()),
+//            ],
+//          ),
 
           ///Contacts Preview
           Align(
@@ -166,7 +166,7 @@ class _MainScreenState extends State<MainScreen> {
                     onLongPress: () {
                       setState(() {
                         contact2 = null;
-                        name2 =null;
+                        name2 = null;
                         delNom(2);
                         Stored().removeData2();
                       });
