@@ -4,7 +4,7 @@ import 'package:geolocator/geolocator.dart';
 import 'package:geocoder/geocoder.dart';
 import 'call_sms.dart';
 
-final String apiKey = 'AIzaSyBGkdS1HiqLwSFTrhQoL859UMAT8YbOXHg';
+final String apiKey = 'xxx';
 
 class Location {
   Position position;
