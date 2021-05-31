@@ -1,6 +1,21 @@
-# safe_women
+# Safe Women
 
-Rebuilding Women's Safety
+Mobile Application to address Women Safety issues.  
+ 
+
+## Usage
+
+This project uses Google Maps Platform for API keys. An API key with Google Cloud Billing enabled is required to run the project. 
+
+Refer to 'Getting Started' for Flutter instructions.
+
+## Working
+App initialization is followed by getting temporary location data, which in turn fetches nearby police station and initiates the call if required
+
+## Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+Please make sure to update tests as appropriate.
 
 ## Getting Started
 
@@ -14,3 +29,6 @@ A few resources to get you started if this is your first Flutter project:
 For help getting started with Flutter, view our
 [online documentation](https://flutter.dev/docs), which offers tutorials,
 samples, guidance on mobile development, and a full API reference.
+
+## Future Scope
+Planning to integrated Machine Learning models to track down crimes against women. 
